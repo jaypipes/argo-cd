@@ -23,17 +23,29 @@ On GKE, you will need grant your account the ability to create new cluster roles
 kubectl create clusterrolebinding YOURNAME-cluster-admin-binding --clusterrole=cluster-admin --user=YOUREMAIL@gmail.com
 ```
 
-## 2. Download Argo CD CLI
+## 2. Install the Argo CD CLI
+
+### Option: download and install binaries from Github
 
 Download the latest Argo CD version from the [list of releases](https://github.com/argoproj/argo-cd/releases/latest).
 
-Also available in Mac Homebrew:
+For example, to install the `argocd` CLI tool on Linux into a `$HOME/bin`
+location (often this location is automatically included in your `$PATH`), you
+could do the following:
+
+```bash
+wget -q -O $HOME/Downloads/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+install -t $HOME/bin -m +x $HOME/Downloads/argocd
+```
+
+### Option: install on Mac via Homebrew
+
+Binary packages are also available in Mac Homebrew:
 
 ```bash
 brew tap argoproj/tap
 brew install argoproj/tap/argocd
 ```
-
 
 ## 3. Access The Argo CD API Server
 
